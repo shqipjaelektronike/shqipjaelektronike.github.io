@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+      }
+
+      h1 {
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .book-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px;
+      }
+
+      .book {
+        width: 300px;
+        height: 400px;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .book:hover {
+        transform: scale(1.1);
+      }
+
+      #scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+      }
+    </style>
+     <link rel="stylesheet" href="styles.css">
+    <title>Recommended Books</title>
+  </head>
+  <body>
+    <div class="fjalori">
+    <header>
+      <div class="header-container">
+          <h1>SHQIPJA ELEKTRONIKE</h1>
+      </div>
+    </header>
+  <div class="container">
+      <h2 class="tit">FJALOR</h2>
+      <div class="cont">
+          <img src="logo.png" alt="Logo">
+          <input type="text" id="searchInput" placeholder="Search...">
+      </div>
+      <ul id="searchResults"></ul>
+      <div id="definition">
+          <h2 id="definitionTitle"></h2>
+          <p id="definitionContent"></p>
+      </div>
+  </div>
+  <script src="script.js"></script>
+</div>
+  <header>
+      <h1>Librat që u rekomandohen nxënësve:</h1>
+    </header>
+    <div class="book-container">
+      <img class="book" src="images/1.jpg" alt="Book 1" />
+      <img class="book" src="images/2.jpg" alt="Book 2" />
+      <img class="book" src="images/3.jpg" alt="Book 3" />
+    </div>
+    <div class="book-container">
+      <img class="book" src="images/4.jpg" alt="Book 4" />
+      <img class="book" src="images/5.jpg" alt="Book 5" />
+      <img class="book" src="images/6.jpg" alt="Book 6" />
+    </div>
+    <div class="book-container">
+      <img class="book" src="images/7.jpg" alt="Book 7" />
+      <img class="book" src="images/8.jpg" alt="Book 8" />
+      <img class="book" src="images/9.jpg" alt="Book 9" />
+    </div>
+    <div class="book-container">
+      <img class="book" src="images/10.jpg" alt="Book 10" />
+      <img class="book" src="images/11.jpg" alt="Book 11" />
+      <!-- Add more books as needed -->
+    </div>
+
+    <div id="scroll-to-top" onclick="scrollToTop()">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+
+    <script>
+      const books = document.querySelectorAll(".book");
+      const scrollToTopButton = document.getElementById("scroll-to-top");
+
+      books.forEach((book) => {
+        book.addEventListener("mouseover", () => {
+          book.style.transform = "scale(1.1)";
+        });
+
+        book.addEventListener("mouseout", () => {
+          book.style.transform = "scale(1)";
+        });
+      });
+
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          scrollToTopButton.style.display = "block";
+        } else {
+          scrollToTopButton.style.display = "none";
+        }
+      };
+
+      function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+  </body>
+</html>
